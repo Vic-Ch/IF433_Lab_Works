@@ -1,17 +1,16 @@
 package oop_108273_victorchandra.week01
 
-fun main(args: Array<String>) {
-  // variable definition
+fun main() {
   val radius = 7.0
   val pi = 3.14
 
-  // calculation
+  // hitung area lingkaran
   var area = pi * radius * radius
 
-  // output concat
+  // print area lingkaran dengan keterangan radius
   println("Radius: $radius, Area: $area")
 
-  // logic check
+  // print jenis lingkaran
   println("This is a ${checkSize(area)}")
 }
 
