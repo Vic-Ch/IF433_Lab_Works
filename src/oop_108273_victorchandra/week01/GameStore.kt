@@ -6,8 +6,11 @@ fun main() {
 
   price = 450000
 
+  var userNote: String? = null
+  
   printReceipt(title = "Math Master", price = price,
-    finalPrice = (1 - calculateDiscount(price)) * price)
+    finalPrice = (1 - calculateDiscount(price)) * price,
+    note = userNote ?: "Tidak ada catatan")
 }
 
 fun calculateDiscount(price: Int) = if (price > 500000) 0.2 else 0.1
@@ -18,5 +21,5 @@ fun calculateDiscount(price: Int) = if (price > 500000) 0.2 else 0.1
   spesifikasi bisnis
 */
 
-fun printReceipt(title: String, price: Int, finalPrice: Double) = println(
-  "Title: $title\nHarga Awal: $price\nHarga Akhir: ${finalPrice.toInt()}")
+fun printReceipt(title: String, price: Int, finalPrice: Double, note: String) = println(
+  "Title: $title\nHarga Awal: $price\nHarga Akhir: ${finalPrice.toInt()}\nCatatan: $note")
