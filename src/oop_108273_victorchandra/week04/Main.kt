@@ -17,4 +17,16 @@ fun main() {
   ev.openTrunk()
   ev.accelerate()
   ev.honk()
+
+  println("\n--- Testing Manager ---")
+  val mgr = Manager("Victor", 10000000)
+  mgr.work()
+  // gaji victor 10 juta
+  println("Bonus ${mgr.name}: Rp${mgr.calculateBonus().toInt()}")
+
+  println("\n--- Testing Developer ---")
+  val dev = Developer("Chandra", 9000000, "Node-Next")
+  dev.work()
+  // gaji chandra 9 juta
+  println("Bonus ${dev.name}: Rp${dev.calculateBonus().toInt()}")
 }
