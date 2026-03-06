@@ -26,11 +26,22 @@ fun main() {
     println("-------------------------")
   }
 
+  // ini task 1
   val persegi = MathHelper()
   val persegiPanjang = MathHelper()
   val lingkaran = MathHelper()
 
   println("Luas persegi adalah ${persegi.hitungLuas(4)}")
   println("Luas persegi panjang adalah ${persegi.hitungLuas(5, 2)}")
-  println("Luas lingkaran adalah ${persegi.hitungLuas(10.0)}")
+  println("Luas lingkaran adalah ${persegi.hitungLuas(10.0)}\n")
+
+  // ini task 2
+  val gopay: PaymentMethod = EWallet("Gopay", 50000.0)
+  val masterCard: PaymentMethod = CreditCard("Master Card", 100000.0)
+
+  val dompet: List<PaymentMethod> = listOf(gopay, masterCard)
+
+  for (dompet in dompet) {
+    dompet.processPayment(75000.0)
+  }
 }
