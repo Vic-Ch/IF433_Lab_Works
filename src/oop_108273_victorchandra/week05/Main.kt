@@ -43,5 +43,16 @@ fun main() {
 
   for (dompet in dompet) {
     dompet.processPayment(75000.0)
+
+    when(dompet) {
+      is EWallet -> {
+        dompet.topUp(50000.0)
+      }
+
+      is CreditCard -> {
+        dompet.processPayment(75000.0)
+      }
+    }
+    println("---")
   }
 }
