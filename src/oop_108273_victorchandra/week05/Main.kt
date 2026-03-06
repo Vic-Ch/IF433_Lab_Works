@@ -25,4 +25,12 @@ fun main() {
 
     println("-------------------------")
   }
+
+  val persegi = MathHelper()
+  val persegiPanjang = MathHelper()
+  val lingkaran = MathHelper()
+
+  println("Luas persegi adalah ${persegi.hitungLuas(4)}")
+  println("Luas persegi panjang adalah ${persegi.hitungLuas(5, 2)}")
+  println("Luas lingkaran adalah ${persegi.hitungLuas(10.0)}")
 }
