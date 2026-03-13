@@ -3,8 +3,9 @@ package oop_108273_victorchandra.week06
 class SmartHomeHub {
   val devices = mutableListOf<SmartDevice>()
 
-  fun addDevice(device: SmartDevice) {
-    println("Device ${device.name} dengan ID ${device.id} berhasil ditambahkan.")
+  fun addDevice(devices: SmartDevice) {
+    this.devices.add(devices)
+    println("Device ${devices.name} dengan ID ${devices.id} berhasil ditambahkan.")
   }
 
   fun turnOffAllSwitches() {
@@ -29,6 +30,7 @@ class SmartHomeHub {
           d.playMusic("Sirine Peringatan")
         }
       }
+      println("---")
     }
   }
 }
