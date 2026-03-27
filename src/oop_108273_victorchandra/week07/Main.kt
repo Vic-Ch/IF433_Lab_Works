@@ -38,4 +38,7 @@ fun main() {
 
   println("\n=== TEST GAME MANAGER ===")
   GameManager.startGame()
+  println("Drop chance item LEGENDARY: ${ItemRarity.LEGENDARY.dropChance}")
+  val wp = Weapon.forgeStarterSword()
+  println("Name: ${wp.item.name}\nRarity: ${wp.item.rarity}\nDamage: ${wp.item.damage}\nDurability: ${wp.durability}")
 }
