@@ -41,4 +41,9 @@ fun main() {
   println("Drop chance item LEGENDARY: ${ItemRarity.LEGENDARY.dropChance}")
   val wp = Weapon.forgeStarterSword()
   println("Name: ${wp.item.name}\nRarity: ${wp.item.rarity}\nDamage: ${wp.item.damage}\nDurability: ${wp.durability}")
+  val wp2 = wp.item.copy(damage = 9999)
+  processEvent(BattleState.SafeZone)
+  processEvent(BattleState.MonsterEncounter("Robin Hood"))
+  processEvent(BattleState.LootDropped(wp2))
+  processEvent(BattleState.GameOver("Disconnected from server bang."))
 }
