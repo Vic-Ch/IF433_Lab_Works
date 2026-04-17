@@ -27,11 +27,11 @@ class ApiParser {
     when(product) {
       is Product.Clothing -> {
         val clot = JavaPaymentService.processPayment(product.id)
-        println(clot!!)
+        print(clot!!)
       }
       is Product.Electronic -> {
         val elec = JavaPaymentService.processPayment(product.id)
-        println(elec!!)
+        print(elec!!)
       }
     }
   }

@@ -16,6 +16,7 @@ fun main() {
       val product = api.parseProduct(r)
       product?.let {
         api.checkOut(product)
+        print(": $product \n")
       } ?: println("Skipped due to not found field.")
     } catch (e: IllegalArgumentException) {
       println(e.message)
