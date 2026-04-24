@@ -26,12 +26,12 @@ fun main() {
   val topPerformersString = winningTrades
     .sortedByDescending { it.roe }
     .map { "WIN [${it.pair} - ${it.position}]: +${it.roe}% ROE (Lev: ${it.leverage})x" }
-//  topPerformersString.forEach { println(it) }
 
   val worstPerformersString = losingTrades
     .sortedBy { it.roe }
     .map { "LOSS [${it.pair} - ${it.position}]: ${it.roe}% ROE (Lev: ${it.leverage})x" }
 //  worstPerformersString.forEach { println(it) }
 
-  
+  val uniquePairs = tradeHistory.map{it.pair}.toSet()
+//  println(uniquePairs)
 }
