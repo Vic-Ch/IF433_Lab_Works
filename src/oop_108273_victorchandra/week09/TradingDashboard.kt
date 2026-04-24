@@ -13,4 +13,7 @@ fun main() {
     TradeLog(pair = "DOGEUSDT", position = "LONG", leverage = 20, roe = 3.5, status = "CLOSED"),
     TradeLog(pair = "BTCUSDT", position = "SHORT", leverage = 50, roe = 65.8, status = "CLOSED")
   )
+
+  val closedTrades = tradeHistory.filter { it.status == "CLOSED" }
+//  closedTrades.forEach { println(it) }
 }
