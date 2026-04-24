@@ -34,4 +34,7 @@ fun main() {
 
   val uniquePairs = tradeHistory.map{it.pair}.toSet()
 //  println(uniquePairs)
+
+  println("=== CRYPTO TRADING DASHBOARD ===")
+  topPerformersString.forEach { println(it) }
 }
