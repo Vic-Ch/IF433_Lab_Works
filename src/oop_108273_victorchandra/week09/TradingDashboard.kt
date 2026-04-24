@@ -15,7 +15,6 @@ fun main() {
   )
 
   val closedTrades = tradeHistory.filter { it.status == "CLOSED" }
-//  closedTrades.forEach { println(it) }
 
   val winningTrades = closedTrades.filter { it.roe > 0 }
 //  winningTrades.forEach { println(it) }
@@ -37,7 +36,7 @@ fun main() {
 
   println("=== CRYPTO TRADING DASHBOARD ===")
   topPerformersString.forEach { println(it) }
-
+//  closedTrades.forEach { println(it) }
   worstPerformersString.forEach { println(it) }
   println("-> Pairs: $uniquePairs")
 }
