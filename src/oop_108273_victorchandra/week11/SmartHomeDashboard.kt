@@ -46,4 +46,10 @@ fun main() {
     this.forEach { println(it.name) }
     println("Total Barang: ${this.size}")
   }
+
+  val totalPower = homeDevices.run {
+    sumOf {it.powerLoad}
+  }
+
+  println("Total Daya: $totalPower")
 }
