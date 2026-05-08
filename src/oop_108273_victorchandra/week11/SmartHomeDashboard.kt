@@ -40,4 +40,10 @@ fun main() {
     println(it.diagnose())
   }
 
+
+  with(homeDevices) {
+    println("\n=== Summary ===")
+    this.forEach { println(it.name) }
+    println("Total Barang: ${this.size}")
+  }
 }
