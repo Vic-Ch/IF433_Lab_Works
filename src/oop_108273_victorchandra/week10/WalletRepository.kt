@@ -8,4 +8,8 @@ class WalletRepository<T>() {
   }
 
   fun getAll(): List<T> = items
+
+  fun <T: Any> search(name: T) {
+    println("$name")
+  }
 }
