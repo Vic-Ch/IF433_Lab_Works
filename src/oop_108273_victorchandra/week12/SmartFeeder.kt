@@ -25,4 +25,9 @@ fun main() {
     println("Siklus pengecekan dispenser pagi selesai.")
   }
 
+  val valid: Result<Int> = runCatching {
+    dispenseKibble(30, 1000, false)
+  }
+
+  println("Hasil: $valid")
 }
