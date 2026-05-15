@@ -26,7 +26,7 @@ fun main() {
   }
 
   val valid: Result<Int> = runCatching {
-    dispenseKibble(30, 1000, false)
+    dispenseKibble(80, 50, false)
   }.onSuccess { newStock ->
     currentKibbleStock = newStock
     println("Makan sore sukses! Sisa stock kibble $currentKibbleStock")
