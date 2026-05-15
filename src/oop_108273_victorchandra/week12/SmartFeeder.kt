@@ -12,7 +12,7 @@ fun dispenseKibble(requestedGram: Int, availableGram: Int, isJammed: Boolean): I
 }
 
 fun main() {
-  val currentKibbleStock = 10
+  var currentKibbleStock = 10
   try {
     dispenseKibble(80, currentKibbleStock, false)
   } catch (e: FeedersExceptions.DispenserJamException) {
@@ -27,6 +27,9 @@ fun main() {
 
   val valid: Result<Int> = runCatching {
     dispenseKibble(30, 1000, false)
+  }.onSuccess { newStock ->
+    currentKibbleStock = newStock
+    println("Makan sore sukses! Sisa stock kibble $currentKibbleStock")
   }
 
   println("Hasil: $valid")
