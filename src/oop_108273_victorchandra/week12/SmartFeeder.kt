@@ -21,6 +21,8 @@ fun main() {
     println("Food Empty Error: ${e.message}")
   } catch (e: Exception) {
     println("General Error: ${e.message}")
+  } finally {
+    println("Siklus pengecekan dispenser pagi selesai.")
   }
 
 }
