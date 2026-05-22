@@ -54,5 +54,7 @@ fun main() {
 
   val loadedData = loadTrades("crypto_trades.csv")
   println("=== TRADE LOGS ===")
-  println(loadedData.sumOf { it.pnl })
+  loadedData.forEach { println(it) }
+  val totalPnl = loadedData.sumOf { it.pnl }
+  println("-> Total PnL BERSIH: $totalPnl")
 }
