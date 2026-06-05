@@ -39,19 +39,34 @@ class EmailNotifier: NotificationService {
   override fun sendNotification(msg: String) = println("Email terkirim: $msg")
 }
 
+interface PricingStrategy {
+  fun calculatePrice(price: Double): Double
+}
+
+class VipPricing: PricingStrategy {
+  override fun calculatePrice(price: Double): Double {
+    return price * 0.90
+  }
+}
+
+class RegularPricing: PricingStrategy {
+  override fun calculatePrice(price: Double): Double {
+    return price
+  }
+}
+
 class SafeOrderProcessor(
   private val repo: OrderRepository,
   private val notifier: NotificationService
 ) {
-  fun processOrder(itemName: String, basePrice: Double, customerType: String) {
-    val finalPrice = when (customerType) {
-      "REGULAR" -> basePrice
-      "VIP" -> basePrice * 0.90
-      else -> basePrice
-    }
+  fun processOrder(itemName: String, basePrice: Double, pricing: PricingStrategy) {
+    val finalPrice = pricing.calculatePrice(basePrice)
 
     println("Memproses pesanan $itemName seharga $finalPrice")
-    repo.saveOrder(itemName, finalPrice, customerType)
+
+    val strategyName = pricing::class.simpleName ?: "UNKNOWN"
+
+    repo.saveOrder(itemName, finalPrice, strategyName)
     notifier.sendNotification("Pesanan $itemName Anda telah dikonfirmasi!")
   }
 }
@@ -60,5 +75,10 @@ fun main() {
   val repository = CsvOrderRepository()
   val emailService = EmailNotifier()
   val processor = SafeOrderProcessor(repository, emailService)
-  processor.processOrder("Laptop", 1000.0, "VIP")
+
+  val vipStrategy = VipPricing()
+  processor.processOrder("Ayam", 1000.0, vipStrategy)
+
+  val regularStrategy = RegularPricing()
+  processor.processOrder("Bebek", 555.0, regularStrategy)
 }
